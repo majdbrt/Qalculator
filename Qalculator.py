@@ -3,6 +3,10 @@ from PyQt5.QtWidgets import QApplication
 from PyQt5.QtWidgets import QWidget
 from PyQt5.QtWidgets import QMainWindow
 
+# QVBoxLayout for the general layout,
+# QGridLayout to arrange buttons,
+# QLineEdit for the display and
+# QPushButton for buttons.
 from PyQt5.QtWidgets import QGridLayout
 from PyQt5.QtWidgets import QLineEdit
 from PyQt5.QtWidgets import QPushButton
@@ -36,10 +40,11 @@ class UI(QMainWindow):
         self.display = QLineEdit()
 
         # set properties
-        self.display.setFixedHeight(self.Settings.window_height*0.1)
+        self.display.setFixedHeight(int(self.Settings.window_height*0.1))
         self.display.setAlignment(Qt.AlignRight)
         self.display.setReadOnly(True)
         self.display.setStyleSheet("QLineEdit { background-color: rgb(0, 0, 0) }")
+
 
         # add display to general layout
         self.general_layout.addWidget(self.display)
@@ -47,7 +52,6 @@ class UI(QMainWindow):
     def create_buttons(self):
         """create the Qalculator's buttons"""
 
-        self.buttons = dict()
         buttons_layout = QGridLayout()
 
         # button's symbol | button's position on grid
@@ -76,14 +80,24 @@ class UI(QMainWindow):
 
         # creating buttons and adding them on grid layout
         for key, value in buttons.items():
-            buttons[key] = QPushButton()
-            buttons[key].setFixedSize(self.Settings.window_width*0.2, self.Settings.window_width*0.2)
+            buttons[key] = QPushButton(key)
+
+            buttons[key].setFixedSize(int(self.Settings.window_width*0.2), int(self.Settings.window_width*0.2))
 
             buttons_layout.addWidget(buttons[key],value[0],value[1])
 
         self.general_layout.addLayout(buttons_layout)
 
-    #def setDisplayText(self):
+    def setDisplayText(self, text):
+        self.display.setText(text)
+        self.display.setFocus()
+
+    def displayText(self):
+        return self.display.text()
+
+    def clearDisplay(self):
+        self.setDisplayText('')
+
 
 
 def main():
