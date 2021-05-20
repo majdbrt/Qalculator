@@ -14,6 +14,9 @@ from PyQt5.QtWidgets import QVBoxLayout
 
 from PyQt5.QtCore import Qt
 
+#
+from functools import partial
+
 from settings import Settings
 
 
@@ -98,6 +101,12 @@ class UI(QMainWindow):
     def clearDisplay(self):
         self.setDisplayText('')
 
+class Control:
+    def __init__(self, viewUI):
+        self.view = viewUI
+        self.connectSignals()
+
+    def buildExpression(self, ):
 
 
 def main():
