@@ -27,6 +27,7 @@ class UI(QMainWindow):
         self.Settings = Settings()
         self.setWindowTitle(self.Settings.window_title)
         self.setFixedSize(self.Settings.window_width, self.Settings.window_height)
+        #self.move(60,15)
 
         self.general_layout = QVBoxLayout()
 
@@ -106,7 +107,7 @@ class Control:
         self.view = viewUI
         self.connectSignals()
 
-    def buildExpression(self, ):
+    #def buildExpression(self, ):
 
 
 def main():
