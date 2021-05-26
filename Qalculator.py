@@ -15,6 +15,8 @@ def evaluateExpresion(expression):
 
     return result
 
+
+
 def main():
     """Qalculator main loop"""
     Qalculator = QApplication(sys.argv)
@@ -23,10 +25,8 @@ def main():
     window = UI()
     window.show()
 
-    eval = evaluateExpresion
-
     #create an instance of Qalculator Control
-    QControl(viewUI= window, model = eval)
+    QControl(viewUI= window)
     sys.exit(Qalculator.exec_())
 
 if __name__ == '__main__':

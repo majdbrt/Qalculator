@@ -10,10 +10,6 @@ class QControl:
         expression = self.view.displayText() + subExpression
         self.view.setDisplayText(expression)
 
-    def calculateResult(self):
-        result = self.evaluate(expression=self.view.displayText())
-        self.view.setDisplayText(result)
-
     def connectSignals(self):
         for key, value in self.view.buttons.items():
             if key not in {'=', 'C'}:
@@ -21,7 +17,8 @@ class QControl:
             #if
         #for
         self.view.buttons['C'].clicked.connect(self.view.clearDisplay)
-        self.view.buttons['='].clicked.connect(self.calculateResult)
-        self.view.display.returnPressed.connect(self.calculateResult)
 
+    def calculateResult(self):
+        result = self.evaluate(expression = self.view.displayText())
+        self.view.setDisplayText(result)
 
