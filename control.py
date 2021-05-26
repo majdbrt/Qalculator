@@ -9,6 +9,8 @@ class QControl:
     def buildExpression(self, subExpression):
         expression = self.view.displayText() + subExpression
         self.view.setDisplayText(expression)
+        if self.view.displayText() == 'Error':
+            self.view.clearDisplay()
 
     def connectSignals(self):
         for key, value in self.view.buttons.items():
@@ -17,6 +19,8 @@ class QControl:
             #if
         #for
         self.view.buttons['C'].clicked.connect(self.view.clearDisplay)
+        self.view.buttons['='].clicked.connect(self.calculateResult)
+        self.view.display.returnPressed.connect(self.calculateResult)
 
     def calculateResult(self):
         result = self.evaluate(expression = self.view.displayText())
