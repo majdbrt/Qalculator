@@ -80,7 +80,7 @@ class UI(QMainWindow):
         # creating buttons and adding them on grid layout
         for key, value in buttons.items():
             self.buttons[key] = QPushButton(key)
-            self.buttons[key].setFixedSize(int(self.Settings.window_width * 0.17), int(self.Settings.window_width * 0.17))
+            self.buttons[key].setFixedSize(int(self.Settings.window_width * 0.18), int(self.Settings.window_width * 0.2))
 
             buttons_layout.addWidget(self.buttons[key], value[0], value[1])
 
