@@ -8,4 +8,10 @@ This repository contains 4 files:
 * control.py contains the QControl class which is responsible for connecting the signals emitted from the GUI, building the mathematical expression and evaluating it using the basic eval() function in python.
 
 
+
+
 ![pic1](https://user-images.githubusercontent.com/54665027/119600743-4c2de480-bdad-11eb-97eb-7bd4c42e1cf4.PNG)
+
+
+
+![pic2](https://user-images.githubusercontent.com/54665027/119600822-767fa200-bdad-11eb-9548-edc6305050dc.PNG)
